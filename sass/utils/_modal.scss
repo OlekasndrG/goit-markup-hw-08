@@ -1,0 +1,76 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* width: 100%;
+  height: 100%;  - тоже самое что все стороны -0 */
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow-y: scroll;
+  opacity: 1;
+  transition: opacity 250ms var(--animation-timing-function);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  /* visibility: hidden; */
+}
+.backdrop.is-hidden .modal {
+  transform: scale(0.9) translate(-50%, -50%);
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 450px;
+  min-height: 609px;
+
+  background-color: var(--background-main-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transform: scale(1) translate(-50%, -50%);
+  transition: transform 250ms var(--animation-timing-function);
+
+  @media screen and (min-width: 1200px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 528px;
+    min-height: 581px;
+  }
+}
+.close-button {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  margin-top: 14px;
+  margin-right: 14px;
+  padding: 0;
+  background-color: var(--background-main-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+  &:hover svg {
+    fill: var(--accent-text-color);
+  }
+  &:focus svg {
+    fill: var(--accent-text-color);
+  }
+}
+
+.close-button__svg {
+  fill: currentColor;
+  margin-top: 5px;
+  transition: fill 250ms var(--animation-timing-function);
+}
