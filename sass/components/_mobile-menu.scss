@@ -41,19 +41,24 @@
 
   @media screen and (max-width: 767px) {
     & {
-      display: none;
+      // display: none;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 98;
+      overflow-y: scroll;
+      pointer-events: none;
+      visibility: hidden;
     }
     &.is-open {
       width: 100vw;
-      height: 796px;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       padding: 40px 48px;
+      pointer-events: initial;
+      visibility: visible;
     }
   }
 }

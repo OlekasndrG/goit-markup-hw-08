@@ -847,16 +847,18 @@ img {
 }
 @media screen and (max-width: 767px) {
   .menu-container {
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 98;
+    overflow-y: scroll;
+    pointer-events: none;
+    visibility: hidden;
   }
   .menu-container.is-open {
     width: 100vw;
-    height: 796px;
+    height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -865,6 +867,8 @@ img {
         -ms-flex-direction: column;
             flex-direction: column;
     padding: 40px 48px;
+    pointer-events: initial;
+    visibility: visible;
   }
 }
 
