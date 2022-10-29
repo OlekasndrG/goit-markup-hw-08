@@ -21,10 +21,6 @@ body {
   /* padding-top: 80px; */
 }
 
-body.modal-open {
-  overflow: hidden;
-}
-
 h1,
 h2,
 h3,
@@ -147,6 +143,7 @@ img {
   left: 0;
   bottom: 0;
   right: 0;
+  z-index: 2;
   /* width: 100%;
   height: 100%;  - тоже самое что все стороны -0 */
   background-color: rgba(0, 0, 0, 0.2);
@@ -154,6 +151,12 @@ img {
   opacity: 1;
   -webkit-transition: opacity 250ms var(--animation-timing-function);
   transition: opacity 250ms var(--animation-timing-function);
+}
+@media screen and (max-width: 479px) {
+  .backdrop {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
 .backdrop.is-hidden {
@@ -183,6 +186,12 @@ img {
   transition: -webkit-transform 250ms var(--animation-timing-function);
   transition: transform 250ms var(--animation-timing-function);
   transition: transform 250ms var(--animation-timing-function), -webkit-transform 250ms var(--animation-timing-function);
+}
+@media screen and (max-width: 479px) {
+  .modal {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 @media screen and (min-width: 1200px) {
   .modal {
@@ -813,7 +822,7 @@ img {
   padding: 0;
   border: none;
   background-color: transparent;
-  z-index: 99;
+  z-index: 1;
 }
 @media screen and (min-width: 768px) {
   .menu-button {
@@ -851,7 +860,6 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 98;
     overflow-y: scroll;
     pointer-events: none;
     visibility: hidden;
